@@ -30,8 +30,8 @@ exit;
 
 function parseRequest() {
 	$postData = file_get_contents('php://input');
-	Logger::getInstance()->info($postData);
 	$json = json_decode($postData);
+	Logger::getInstance()->info($json);
 	$event = $json->events[0];
 	return $event;
 }
