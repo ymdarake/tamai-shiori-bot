@@ -16,6 +16,7 @@ require_once(__DIR__ . '/config/config.php');
 require_once(__DIR__ . "/application/Application.php");
 require_once(__DIR__ . "/handler/TextRequestHandler.php");
 require_once(__DIR__ . "/handler/UnunderstandableRequestHandler.php");
+require_once(__DIR__ . "/lib/Logger.php");
 
 
 $event = parseRequest();
@@ -28,7 +29,7 @@ exit;
 
 function parseRequest() {
 	$postData = file_get_contents('php://input');
-	error_log($postData);
+	Logger::getInstance()->info($postData);
 	$json = json_decode($postData);
 	$event = $json->events[0];
 	return $event;
