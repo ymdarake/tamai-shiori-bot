@@ -6,6 +6,7 @@
 use ymdarake\tamai\bot\application\Application;
 use ymdarake\tamai\bot\handler\TextRequestHandler;
 use ymdarake\tamai\bot\handler\UnunderstandableRequestHandler;
+use ymdarake\tamai\bot\lib\Logger;
 
 
 date_default_timezone_set("Asia/Tokyo");
