@@ -6,13 +6,13 @@ class Strings {
 		return mb_strpos($haystack, $needle) !== false;
 	}
 
-	public static function tryExtractKeyword($keywords, $examined) {
+	public static function tryExtractKeyword($keywords, $examined, $default = "") {
 		foreach ($keywords as $keyword) {
 			if (Strings::contains($examined, $keyword)) {
 				return $keyword;
 			}
 		}
-		return "";
+		return $default;
 	}
 
 	public static function containsKeyword($keywords, $examined) {
