@@ -9,7 +9,7 @@ abstract class Handler {
 	protected $bot;
 	protected $event;
 
-	abstract protected function handleImpl();
+	abstract protected function handle();
 
 	public function __construct($event) {
 		$this->bot = new LINEBot(
@@ -19,26 +19,14 @@ abstract class Handler {
 		$this->event = $event;
 	}
 
-	public function handle() {
-		return $this->handleImpl();
-	}
-
 	protected function reply($messageBuilder) {
-		$response = $this->bot->replyMessage($this->event->replyToken, $messageBuilder);
-		$this->log($response);
+		return $this->bot->replyMessage($this->event->replyToken, $messageBuilder);
 	}
 
 	protected function replyMultiTextMessages(...$messages) {
-		$this->bot->replyText($this->event->replyToken, ...$messages);
+		return $this->bot->replyText($this->event->replyToken, ...$messages);
 	}
 
-	protected function log($data) {
-		ob_start();
-		var_dump($data);
-		$str = ob_get_contents();
-		ob_end_clean();
-		error_log(get_class($this));
-		error_log($str);
-	}
+
 
 }

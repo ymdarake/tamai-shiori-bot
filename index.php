@@ -4,18 +4,18 @@
  */
 
 // TODO: autoloader
-
-
 require_once(__DIR__ . '/vendor/autoload.php');
 require_once(__DIR__ . '/config/config.php');
+require_once(__DIR__ . "/application/Application.php");
 require_once(__DIR__ . "/handler/TextRequestHandler.php");
 require_once(__DIR__ . "/handler/UnunderstandableRequestHandler.php");
 
 
-
 $event = parseRequest();
 $handler = getHandler($event);
-$handler->handle();
+$application = new Application();
+$application->setHandler($handler);
+$application->run();
 exit;
 
 

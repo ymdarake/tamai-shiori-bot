@@ -12,8 +12,8 @@ class UnunderstandableRequestHandler extends Handler {
 		parent::__construct($event);
 	}
 
-	public function handleImpl() {
-		$this->reply(new TextMessageBuilder("いいかー！男ならハッキリしゃべれーーー！！！"));
+	public function handle() {
+		return $this->reply(new TextMessageBuilder("いいかー！男ならハッキリしゃべれーーー！！！"));
 	}
 
 }
