@@ -127,7 +127,7 @@ class MessageBuilderFactory {
 		return Strings::containsKeyword(["世間", "時代"], $this->text);
 	}
 	private function isMomocloNews() {
-		return Strings::containsKeyword(["ニュース", "速報", "しおったー", "最新", "情報"], $this->text);
+		return Strings::containsKeyword(["\uD83C\uDF40", "ニュース", "速報", "しおったー", "最新", "情報"], $this->text);
 	}
 	private function isNatalie() {
 		return Strings::containsKeyword(["ナタリー", "natalie"], strtolower($this->text));
