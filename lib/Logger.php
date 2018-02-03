@@ -22,7 +22,10 @@ class Logger {
 	}
 
 	public function __call($methodName, $arguments) {
-		$message = isset($arguments[0]) && is_string($arguments[0]) ? $arguments[0] : "No message given";
+		ob_start();
+		var_dump($arguments);
+		$message = ob_get_contents();
+		ob_end_clean();
 		$this->log($methodName, $message);
 	}
 
