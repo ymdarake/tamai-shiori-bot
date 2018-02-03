@@ -1,22 +1,22 @@
 <?php
-namespace ymdarake\tamai\bot;
+namespace ymdarake\tamai\bot\handler\helper;
 
 
-use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
-use \LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
-use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
-use \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
-use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
-use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
-use \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
+use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
+use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 
 use ymdarake\tamai\bot\service\NewsFetchService;
 use ymdarake\lib\Strings;
 use ymdarake\lib\Arrays;
 
-require_once(__DIR__ . "/lib/Strings.php");
-require_once(__DIR__ . "/lib/Arrays.php");
-require_once(__DIR__ . "/service/NewsFetchService.php");
+require_once(dirname(__DIR__, 2) . "/lib/Strings.php");
+require_once(dirname(__DIR__, 2) . "/lib/Arrays.php");
+require_once(dirname(__DIR__, 2) . "/service/NewsFetchService.php");
 
 define("IMAGES_MAIN", ['shao-e-shao.jpg', 'bdbook.jpg', 'beer.jpg', 'line.jpg', 'onigiri.jpg', 'tanpopo.jpg']);
 define("IMAGES_FOOD", ["onigiri.jpg", "wankosoba.jpg", "soba.jpg", "udon.jpg", "curry.jpg", "yakisoba.jpg"]);
@@ -29,7 +29,7 @@ define("CAROUSEL_MAX_COUNT", 10);
  * TODO: Androidだと音声が再生できない
  * @link https://github.com/line/line-bot-sdk-go/issues/30
  */
-class MessageBuilderFactory {
+class MessageBuilderCreateHelper {
 
 	private $text;
 
@@ -69,6 +69,9 @@ class MessageBuilderFactory {
 		return new AudioMessageBuilder(AUDIO_URL, 7000);
 	}
 
+	/**
+	 * TODO: カルーセルの生成ロジックを分離
+	 */
 	private function genCarouselTemplateMessageBuilder($searchWord = "") {
 		$news = (new NewsFetchService())->fetch($searchWord);
 		$carouselCount = 0;

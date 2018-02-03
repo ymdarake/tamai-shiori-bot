@@ -6,7 +6,6 @@ use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use ymdarake\tamai\bot\handler\Handler;
 
 require_once(__DIR__ . "/Handler.php");
-require_once(dirname(__DIR__) . "/MessageBuilderFactory.php");
 
 
 class UnunderstandableRequestHandler extends Handler {

@@ -3,13 +3,13 @@ namespace ymdarake\tamai\bot\handler;
 
 
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
-use ymdarake\tamai\bot\MessageBuilderFactory;
 use ymdarake\tamai\bot\handler\Handler;
+use ymdarake\tamai\bot\handler\helper\MessageBuilderCreateHelper;
 use ymdarake\tamai\bot\exception\UnhandleableEventTypeException;
 use ymdarake\lib\Strings;
 
 require_once(__DIR__ . "/Handler.php");
-require_once(dirname(__DIR__) . "/MessageBuilderFactory.php");
+require_once(dirname(__DIR__) . "/helper/MessageBuilderCreateHelper.php");
 require_once(dirname(__DIR__) . "/lib/Strings.php");
 require_once(dirname(__DIR__) . "/exception/UnhandleableEventTypeException.php");
 
@@ -34,7 +34,7 @@ class TextRequestHandler extends Handler {
 			);
 		}
 
-		return $this->reply((new MessageBuilderFactory($this->event->message->text))->create());
+		return $this->reply((new MessageBuilderCreateHelper($this->event->message->text))->create());
 	}
 
 }
