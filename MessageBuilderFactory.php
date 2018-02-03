@@ -1,4 +1,7 @@
 <?php
+namespace ymdarake\tamai\bot\MessageBuilderFactory;
+
+
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;

@@ -3,6 +3,7 @@ namespace ymdarake\tamai\bot\handler;
 
 
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use ymdarake\tamai\bot\MessageBuilderFactory;
 use ymdarake\tamai\bot\handler\Handler;
 use ymdarake\tamai\bot\exception\UnhandleableEventTypeException;
 use ymdarake\lib\Strings;
