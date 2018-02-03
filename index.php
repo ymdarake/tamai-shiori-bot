@@ -39,7 +39,7 @@ function parseRequest() {
 function getHandler($event) {
 	
 	if (!isset($event->message->type)) {
-		error_log("Event message type missing.");
+		Logger::getInstance()->warn("Event message type missing");
 		return new UnunderstandableRequestHandler($event);
 	}
 
