@@ -15,7 +15,7 @@ require_once(__DIR__ . "/handler/UnunderstandableRequestHandler.php");
 
 $event = parseRequest();
 $handler = getHandler($event);
-$handler->handle();//TODO: give event
+$handler->handle();
 exit;
 
 
