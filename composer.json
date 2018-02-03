@@ -1,0 +1,6 @@
+{
+    "require": {
+        "linecorp/line-bot-sdk": "^1.4",
+        "symfony/polyfill-mbstring": "^1.6"
+    }
+}
