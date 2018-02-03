@@ -1,5 +1,7 @@
 <?php
 
+namespace ymdarake\lib;
+
 class Logger {
 
 	private static $instance;

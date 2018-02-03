@@ -3,6 +3,8 @@
  * @link https://github.com/line/line-bot-sdk-php
  */
 
+use ymdarake\tamai\news\application\Application;
+
 // TODO: autoloader
 require_once(__DIR__ . '/vendor/autoload.php');
 require_once(__DIR__ . '/config/config.php');
