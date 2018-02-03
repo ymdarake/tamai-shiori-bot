@@ -7,6 +7,9 @@ use ymdarake\tamai\bot\application\Application;
 use ymdarake\tamai\bot\handler\TextRequestHandler;
 use ymdarake\tamai\bot\handler\UnunderstandableRequestHandler;
 
+
+date_default_timezone_set("Asia/Tokyo");
+
 // TODO: autoloader
 require_once(__DIR__ . '/vendor/autoload.php');
 require_once(__DIR__ . '/config/config.php');
