@@ -12,11 +12,13 @@ class Application {
 	private $logger;
 
 	public function __construct() {
-		$this->logger = Logger::getInstance();
 	}
 
 	public function setHandler($handler) {
 		$this->handler = $handler;
+	}
+	public function setLogger($logger) {
+		$this->logger = $logger;
 	}
 
 	public function run() {
