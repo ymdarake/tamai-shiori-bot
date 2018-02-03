@@ -1,7 +1,7 @@
 <?php
 
-use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
-use \LINE\LINEBot;
+use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use LINE\LINEBot;
 
 
 abstract class Handler {
@@ -26,7 +26,5 @@ abstract class Handler {
 	protected function replyMultiTextMessages(...$messages) {
 		return $this->bot->replyText($this->event->replyToken, ...$messages);
 	}
-
-
 
 }
