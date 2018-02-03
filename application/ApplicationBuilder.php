@@ -3,7 +3,7 @@ namespace ymdarake\tamai\bot\application;
 
 
 use ymdarake\lib\Logger;
-use ymdarake\application\Application;
+use ymdarake\tamai\bot\application\Application;
 
 require_once(dirname(__DIR__) . "/lib/Logger.php");
 require_once(__DIR__ . "/Application.php");
