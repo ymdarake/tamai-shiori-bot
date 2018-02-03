@@ -1,4 +1,6 @@
 <?php
+namespace ymdarake\lib;
+
 
 class Strings {
 	
@@ -8,7 +10,7 @@ class Strings {
 
 	public static function tryExtractKeyword($keywords, $examined, $default = "") {
 		foreach ($keywords as $keyword) {
-			if (Strings::contains($examined, $keyword)) {
+			if (self::contains($examined, $keyword)) {
 				return $keyword;
 			}
 		}
@@ -17,7 +19,7 @@ class Strings {
 
 	public static function containsKeyword($keywords, $examined) {
 		foreach ($keywords as $keyword) {
-			if (Strings::contains($examined, $keyword)) {
+			if (self::contains($examined, $keyword)) {
 				return true;
 			}
 		}

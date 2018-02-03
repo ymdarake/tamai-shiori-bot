@@ -1,8 +1,9 @@
 <?php
+namespace ymdarake\tamai\bot\application;
 
-namespace ymdarake\tamai\news\application;
 
 use ymdarake\lib\Logger;
+
 require_once(dirname(__DIR__) . "/lib/Logger.php");
 
 class Application {

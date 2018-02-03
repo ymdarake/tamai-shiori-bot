@@ -1,4 +1,6 @@
 <?php
+namespace ymdarake\tamai\bot\handler;
+
 
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use LINE\LINEBot;

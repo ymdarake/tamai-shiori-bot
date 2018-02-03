@@ -1,4 +1,6 @@
 <?php
+namespace ymdarake\tamai\bot\model;
+
 
 class News {
 	

@@ -1,6 +1,12 @@
 <?php
+namespace ymdarake\tamai\bot\service;
+
+
+use ymdarake\tamai\bot\model\News;
+
 
 require_once(dirname(__DIR__) . "/model/News.php");
+
 
 class NewsClient {
 

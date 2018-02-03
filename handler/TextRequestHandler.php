@@ -1,7 +1,11 @@
 <?php
+namespace ymdarake\tamai\bot\handler;
+
 
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
-use ymdarake\tamai\news\exception\UnhandleableEventTypeException;
+use ymdarake\tamai\bot\handler\Handler;
+use ymdarake\tamai\bot\exception\UnhandleableEventTypeException;
+use ymdarake\lib\Strings;
 
 require_once(__DIR__ . "/Handler.php");
 require_once(dirname(__DIR__) . "/MessageBuilderFactory.php");

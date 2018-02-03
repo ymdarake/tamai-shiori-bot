@@ -1,6 +1,6 @@
 <?php
+namespace ymdarake\tamai\bot\exception;
 
-namespace ymdarake\tamai\news\exception;
 
 class UnhandleableEventTypeException extends \Exception {
 

@@ -3,7 +3,9 @@
  * @link https://github.com/line/line-bot-sdk-php
  */
 
-use ymdarake\tamai\news\application\Application;
+use ymdarake\tamai\bot\application\Application;
+use ymdarake\tamai\bot\handler\TextRequestHandler;
+use ymdarake\tamai\bot\handler\UnunderstandableRequestHandler;
 
 // TODO: autoloader
 require_once(__DIR__ . '/vendor/autoload.php');

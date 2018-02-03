@@ -1,6 +1,6 @@
 <?php
-
 namespace ymdarake\lib;
+
 
 class Logger {
 
@@ -11,7 +11,7 @@ class Logger {
 
 	private function log($level, $message) {
 		$dateTimeString = date("Y-m-d H:i:s");
-		error_log("[{$level}]{$dateTimeString} {$message}.\n");
+		error_log("\n[{$level}]{$dateTimeString} {$message}.\n");
 	}
 
 	public static function getInstance() {

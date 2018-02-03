@@ -3,11 +3,13 @@ use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
-
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
-
 use \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+
+use ymdarake\tamai\bot\service\NewsClient;
+use ymdarake\lib\Strings;
+use ymdarake\lib\Arrays;
 
 require_once(__DIR__ . "/lib/Strings.php");
 require_once(__DIR__ . "/lib/Arrays.php");
@@ -20,6 +22,7 @@ define("IMAGES_ALCOHOL", ["beer.jpg", "beer2.jpg", "wine.jpg"]);
 define("CAROUSEL_MAX_COUNT", 10);
 
 /**
+ * TODO: handlerに寄せてリファクタ
  * TODO: Androidだと音声が再生できない
  * @link https://github.com/line/line-bot-sdk-go/issues/30
  */
