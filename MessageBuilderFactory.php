@@ -1,5 +1,5 @@
 <?php
-namespace ymdarake\tamai\bot\MessageBuilderFactory;
+namespace ymdarake\tamai\bot;
 
 
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
