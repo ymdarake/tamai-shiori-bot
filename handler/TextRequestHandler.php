@@ -9,7 +9,7 @@ use ymdarake\tamai\bot\exception\UnhandleableEventTypeException;
 use ymdarake\lib\Strings;
 
 require_once(__DIR__ . "/Handler.php");
-require_once(dirname(__DIR__) . "/helper/MessageBuilderCreateHelper.php");
+require_once(__DIR__ . "/helper/MessageBuilderCreateHelper.php");
 require_once(dirname(__DIR__) . "/lib/Strings.php");
 require_once(dirname(__DIR__) . "/exception/UnhandleableEventTypeException.php");
 
