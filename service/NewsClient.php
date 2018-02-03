@@ -8,7 +8,7 @@ use ymdarake\tamai\bot\model\News;
 require_once(dirname(__DIR__) . "/model/News.php");
 
 
-class NewsClient {
+class NewsFetchService {
 
 	public function __construct() {
 	}

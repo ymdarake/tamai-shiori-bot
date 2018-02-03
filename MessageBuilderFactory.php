@@ -10,13 +10,13 @@ use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 
-use ymdarake\tamai\bot\service\NewsClient;
+use ymdarake\tamai\bot\service\NewsFetchService;
 use ymdarake\lib\Strings;
 use ymdarake\lib\Arrays;
 
 require_once(__DIR__ . "/lib/Strings.php");
 require_once(__DIR__ . "/lib/Arrays.php");
-require_once(__DIR__ . "/service/NewsClient.php");
+require_once(__DIR__ . "/service/NewsFetchService.php");
 
 define("IMAGES_MAIN", ['shao-e-shao.jpg', 'bdbook.jpg', 'beer.jpg', 'line.jpg', 'onigiri.jpg', 'tanpopo.jpg']);
 define("IMAGES_FOOD", ["onigiri.jpg", "wankosoba.jpg", "soba.jpg", "udon.jpg", "curry.jpg", "yakisoba.jpg"]);
@@ -70,7 +70,7 @@ class MessageBuilderFactory {
 	}
 
 	private function genCarouselTemplateMessageBuilder($searchWord = "") {
-		$news = (new NewsClient())->fetch($searchWord);
+		$news = (new NewsFetchService())->fetch($searchWord);
 		$carouselCount = 0;
 		$carouselColumnTemplateBuilders = [];
 		foreach ($news as $n) {
