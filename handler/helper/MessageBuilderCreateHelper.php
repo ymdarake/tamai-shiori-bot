@@ -12,12 +12,14 @@ use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
 
 use ymdarake\tamai\bot\model\dao\NewsDao;
+use ymdarake\tamai\bot\handler\helper\PostbackData;
 use ymdarake\lib\Strings;
 use ymdarake\lib\Arrays;
 
 require_once(dirname(__DIR__, 2) . "/lib/Strings.php");
 require_once(dirname(__DIR__, 2) . "/lib/Arrays.php");
 require_once(dirname(__DIR__, 2) . "/model/dao/NewsDao.php");
+require_once(__DIR__ . "/PostbackData.php");
 
 define("IMAGES_MAIN", ['shao-e-shao.jpg', 'bdbook.jpg', 'beer.jpg', 'line.jpg', 'onigiri.jpg', 'tanpopo.jpg']);
 define("IMAGES_FOOD", ["onigiri.jpg", "wankosoba.jpg", "soba.jpg", "udon.jpg", "curry.jpg", "yakisoba.jpg"]);
@@ -98,9 +100,10 @@ class MessageBuilderCreateHelper {
 	}
 	private function genPostbackCarouselTemplateMessageBuilder() {
 		$postbackActions = [
-			["title" => "玉井詩織", "description" => "しおりんのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => "type:news.shiori"],
-			["title" => "ももクロ", "description" => "ももクロのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => "type:news.momoclo"],
-			["title" => "ナタリー", "description" => "ナタリーでももクロのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => "type:news.natalie"],
+			["title" => "玉井詩織", "description" => "しおりんのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => PostbackData::NEWS_SHIORI],
+			["title" => "ももクロ", "description" => "ももクロのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => PostbackData::NEWS_MOMOCLO],
+			["title" => "ナタリー", "description" => "ナタリーでももクロのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => PostbackData::NEWS_NATALIE],
+			["title" => "CNN", "description" => "CNNの最新ニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => PostbackData::NEWS_CNN],
 		];
 
 		$carouselColumnTemplateBuilders = [];
@@ -118,7 +121,7 @@ class MessageBuilderCreateHelper {
 		$carouselTemplateBuilder = new CarouselTemplateBuilder($carouselColumnTemplateBuilders);
 		return new TemplateMessageBuilder("ニュース選択", $carouselTemplateBuilder);
 	}
-	private function genCarouselTemplateMessageBuilder($searchWord = "") {
+	public function genCarouselTemplateMessageBuilder($searchWord = "") {
 		$news = (new NewsDao())->fetch($searchWord);
 		$carouselCount = 0;
 		$carouselColumnTemplateBuilders = [];
