@@ -16,8 +16,7 @@ class PostbackRequestHandler extends Handler {
 
 	public function handle() {
 
-		//TODO: ボットでパースしてないせいか、postback'で取れてくる
-		if ($this->type != "postback" && $this->type != "postback'") {
+		if ($this->event->type != "postback") {
 			throw new UnhandleableEventTypeException('postback', $this->event->type);
 		}
 
