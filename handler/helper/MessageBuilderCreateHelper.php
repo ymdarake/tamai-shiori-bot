@@ -125,7 +125,7 @@ class MessageBuilderCreateHelper {
 
 	private function tryGetSpecificBuilder() {
 		if ($this->isExternalLinks()) {
-			return $this->genPostbackActionCarouselTemplateMessageBuilder();
+			return $this->genExternalLinkCarouselTemplateMessageBuilder();
 		}
 		if ($this->isNews()) {
 			return $this->genCarouselTemplateMessageBuilder();
