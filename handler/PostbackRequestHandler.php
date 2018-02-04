@@ -16,7 +16,7 @@ class PostbackRequestHandler extends Handler {
 
 	public function handle() {
 
-		if ($this->event->type != "postback") {
+		if ($this->type != "postback") {
 			throw new UnhandleableEventTypeException('postback', $this->event->type);
 		}
 
