@@ -12,7 +12,7 @@ use ymdarake\tamai\bot\handler\helper\MessageBuilderCreateHelper;
 require_once(__DIR__ . "/Handler.php");
 require_once(dirname(__DIR__) . "/exception/UnhandleableEventTypeException.php");
 require_once(dirname(__DIR__) . "/exception/UnhandleablePostbackDataException.php");
-require_once(__DIR__ . "/MessageBuilderCreateHelper.php");
+require_once(__DIR__ . "/helper/MessageBuilderCreateHelper.php");
 
 class PostbackRequestHandler extends Handler {
 
