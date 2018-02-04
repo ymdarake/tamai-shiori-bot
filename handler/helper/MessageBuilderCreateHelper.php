@@ -72,7 +72,7 @@ class MessageBuilderCreateHelper {
 	private function genExternalLinkCarouselTemplateMessageBuilder() {
 		$uriActions = [
 			["title" => "Instagram", "description" => "玉井詩織 公式Instagram", "image" => APP_RESOURCE_PATH . "instagram.jpg", "uri" => "https://www.instagram.com/shioritamai_official/"],
-			["title" => "楽しおりん生活", "description" => "玉井詩織 公式ブログ", "image" => "http://stat.blogskin.ameba.jp/blogskin_images/20151102/16/a4/6U/p/o11200560tamai-sd1446449850827.png", "uri" => "https://ameblo.jp/tamai-sd/"],
+			["title" => "楽しおりん生活", "description" => "玉井詩織 公式ブログ", "image" => APP_RESOURCE_PATH . "tanoshiorin.png", "uri" => "https://ameblo.jp/tamai-sd/"],
 			["title" => "スケジュール", "description" => "ももいろクローバーZ スケジュール", "image" => APP_RESOURCE_PATH . "shao-e-shao.jpg", "uri" => "http://momoirocloverz.blog.fc2.com/blog-category-38.html"],
 			["title" => "Instagram", "description" => "百田夏菜子 公式Instagram", "image" => "https://scontent-nrt1-1.cdninstagram.com/vp/7a2e7a4fdf075c7c45349c8ce58235c7/5B15A810/t51.2885-19/s150x150/27573355_803494643167452_3111618129944379392_n.jpg", "uri" => "https://www.instagram.com/kanakomomota_official/"],
 		];
