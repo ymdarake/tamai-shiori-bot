@@ -111,7 +111,7 @@ class MessageBuilderCreateHelper {
 					$pa["description"],
 					$pa["image"],
 					[
-						new PostbackTemplateActionBuilder("検索", $pa["data"])
+						new PostbackTemplateActionBuilder("検索", $pa["data"], "わくわく！")
 					]
 				);
 		}
