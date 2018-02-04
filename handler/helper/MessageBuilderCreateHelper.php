@@ -36,7 +36,7 @@ class MessageBuilderCreateHelper {
 
 	private $text;
 
-	public function __construct($text) {
+	public function __construct($text = "") {
 		$this->text = is_string($text) ? $text : "";
 	}
 
