@@ -28,7 +28,7 @@ class PostbackRequestHandler extends Handler {
 
 		if (in_array($this->event->postback->data, PostbackData::all())) {
 			//TODO: ロジックを分離
-			return (new MessageBuilderCreateHelper())->genCarouselTemplateMessageBuilder($this->event->postback->data);
+			return $this->reply((new MessageBuilderCreateHelper())->genCarouselTemplateMessageBuilder($this->event->postback->data));
 		}
 
 		throw new UnhandleablePostbackDataException($this->event->postback->data);
