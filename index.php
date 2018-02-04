@@ -39,8 +39,8 @@ function parseRequest() {
 //TODO: use $bot->parseEventRequest
 function getHandler($event) {
 
-	if (!isset($event->message->type)) {
-		Logger::getInstance()->warn("Event message type missing");
+	if (!isset($event->type)) {
+		Logger::getInstance()->warn("Event type missing");
 		return new UnunderstandableRequestHandler($event);
 	}
 
