@@ -2,7 +2,6 @@
 namespace ymdarake\tamai\bot\handler;
 
 
-use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use ymdarake\tamai\bot\handler\Handler;
 use ymdarake\tamai\bot\handler\helper\MessageBuilderCreateHelper;
 use ymdarake\tamai\bot\exception\UnhandleableEventTypeException;
