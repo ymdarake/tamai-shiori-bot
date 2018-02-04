@@ -36,18 +36,19 @@ function parseRequest() {
 	return $event;
 }
 
+//TODO: use $bot->parseEventRequest
 function getHandler($event) {
-	
+
 	if (!isset($event->message->type)) {
 		Logger::getInstance()->warn("Event message type missing");
 		return new UnunderstandableRequestHandler($event);
 	}
 
-	if ($event->message->type === "text") {
+	if ($event->type === "message" && $event->message->type === "text") {
 		return new TextRequestHandler($event);
 	}
 
-	if ($event->message->type === "postback") {
+	if ($event->type === "postback") {
 		return new PostbackRequestHandler($event);
 	}
 
