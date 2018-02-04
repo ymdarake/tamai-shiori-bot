@@ -5,6 +5,7 @@
 
 use ymdarake\tamai\bot\application\ApplicationBuilder;
 use ymdarake\tamai\bot\handler\TextRequestHandler;
+use ymdarake\tamai\bot\handler\PostbackRequestHandler;
 use ymdarake\tamai\bot\handler\UnunderstandableRequestHandler;
 use ymdarake\lib\Logger;
 
@@ -16,6 +17,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 require_once(__DIR__ . '/config/config.php');
 require_once(__DIR__ . "/application/ApplicationBuilder.php");
 require_once(__DIR__ . "/handler/TextRequestHandler.php");
+require_once(__DIR__ . "/handler/PostbackRequestHandler.php");
 require_once(__DIR__ . "/handler/UnunderstandableRequestHandler.php");
 require_once(__DIR__ . "/lib/Logger.php");
 
@@ -43,6 +45,10 @@ function getHandler($event) {
 
 	if ($event->message->type === "text") {
 		return new TextRequestHandler($event);
+	}
+
+	if ($event->message->type === "postback") {
+		return new PostbackRequestHandler($event);
 	}
 
 	return new UnunderstandableRequestHandler($event);

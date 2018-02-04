@@ -9,6 +9,7 @@ use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
 
 use ymdarake\tamai\bot\model\dao\NewsDao;
 use ymdarake\lib\Strings;
@@ -69,7 +70,10 @@ class MessageBuilderCreateHelper {
 		return new AudioMessageBuilder(AUDIO_URL, 7000);
 	}
 
-	private function genExternalLinkCarouselTemplateMessageBuilder() {
+	/**
+	 * TODO: カルーセルの生成ロジックを分離
+	 */
+	 private function genExternalLinkCarouselTemplateMessageBuilder() {
 		$uriActions = [
 			["title" => "Instagram", "description" => "玉井詩織 公式Instagram", "image" => APP_RESOURCE_PATH . "instagram.jpg", "uri" => "https://www.instagram.com/shioritamai_official/"],
 			["title" => "楽しおりん生活", "description" => "玉井詩織 公式ブログ", "image" => APP_RESOURCE_PATH . "tanoshiorin.png", "uri" => "https://ameblo.jp/tamai-sd/"],
@@ -92,10 +96,28 @@ class MessageBuilderCreateHelper {
 		$carouselTemplateBuilder = new CarouselTemplateBuilder($carouselColumnTemplateBuilders);
 		return new TemplateMessageBuilder("外部リンク集", $carouselTemplateBuilder);
 	}
+	private function genPostbackCarouselTemplateMessageBuilder() {
+		$postbackActions = [
+			["title" => "玉井詩織", "description" => "しおりんのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => "type:news.shiori"],
+			["title" => "ももクロ", "description" => "ももクロのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => "type:news.momoclo"],
+			["title" => "ナタリー", "description" => "ナタリーでももクロのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => "type:news.natalie"],
+		];
 
-	/**
-	 * TODO: カルーセルの生成ロジックを分離
-	 */
+		$carouselColumnTemplateBuilders = [];
+		foreach ($postbackActions as $pa) {
+			$carouselColumnTemplateBuilders[] = 
+				new CarouselColumnTemplateBuilder(
+					$pa["title"],
+					$pa["description"],
+					$pa["image"],
+					[
+						new PostbackTemplateActionBuilder("検索", $pa["data"])
+					]
+				);
+		}
+		$carouselTemplateBuilder = new CarouselTemplateBuilder($carouselColumnTemplateBuilders);
+		return new TemplateMessageBuilder("ニュース選択", $carouselTemplateBuilder);
+	}
 	private function genCarouselTemplateMessageBuilder($searchWord = "") {
 		$news = (new NewsDao())->fetch($searchWord);
 		$carouselCount = 0;
@@ -127,6 +149,9 @@ class MessageBuilderCreateHelper {
 		if ($this->isExternalLinks()) {
 			return $this->genExternalLinkCarouselTemplateMessageBuilder();
 		}
+		if ($this->isPostbackKeywordNews()) {
+			return $this->genPostbackCarouselTemplateMessageBuilder();
+		}
 		if ($this->isNews()) {
 			return $this->genCarouselTemplateMessageBuilder();
 		}
@@ -155,6 +180,9 @@ class MessageBuilderCreateHelper {
 
 	private function isExternalLinks() {
 		return Strings::containsKeyword(["インスタ", "instagram", "スケジュール", "ブログ", "リンク集", "外部リンク"], $this->text);
+	}
+	private function isPostbackKeywordNews() {
+		return Strings::containsKeyword(["ニュースが読みたい！"], $this->text);
 	}
 
 	private function isNews() {
