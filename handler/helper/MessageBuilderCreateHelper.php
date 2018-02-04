@@ -101,6 +101,7 @@ class MessageBuilderCreateHelper {
 	private function genPostbackCarouselTemplateMessageBuilder() {
 		$postbackActions = [
 			["title" => "玉井詩織", "description" => "しおりんのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => PostbackData::NEWS_SHIORI],
+			["title" => "百田夏菜子", "description" => "夏菜子のニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => PostbackData::NEWS_KANAKO],
 			["title" => "ももクロ", "description" => "ももクロのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => PostbackData::NEWS_MOMOCLO],
 			["title" => "ナタリー", "description" => "ナタリーでももクロのニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => PostbackData::NEWS_NATALIE],
 			["title" => "CNN", "description" => "CNNの最新ニュースを検索するよ！", "image" => APP_RESOURCE_PATH . "shao-e-shao-rect.jpg", "data" => PostbackData::NEWS_CNN],
