@@ -10,13 +10,13 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 
-use ymdarake\tamai\bot\service\NewsFetchService;
+use ymdarake\tamai\bot\model\dao\NewsDao;
 use ymdarake\lib\Strings;
 use ymdarake\lib\Arrays;
 
 require_once(dirname(__DIR__, 2) . "/lib/Strings.php");
 require_once(dirname(__DIR__, 2) . "/lib/Arrays.php");
-require_once(dirname(__DIR__, 2) . "/service/NewsFetchService.php");
+require_once(dirname(__DIR__, 2) . "/model/dao/NewsDao.php");
 
 define("IMAGES_MAIN", ['shao-e-shao.jpg', 'bdbook.jpg', 'beer.jpg', 'line.jpg', 'onigiri.jpg', 'tanpopo.jpg']);
 define("IMAGES_FOOD", ["onigiri.jpg", "wankosoba.jpg", "soba.jpg", "udon.jpg", "curry.jpg", "yakisoba.jpg"]);
@@ -73,7 +73,7 @@ class MessageBuilderCreateHelper {
 	 * TODO: カルーセルの生成ロジックを分離
 	 */
 	private function genCarouselTemplateMessageBuilder($searchWord = "") {
-		$news = (new NewsFetchService())->fetch($searchWord);
+		$news = (new NewsDao())->fetch($searchWord);
 		$carouselCount = 0;
 		$carouselColumnTemplateBuilders = [];
 		foreach ($news as $n) {

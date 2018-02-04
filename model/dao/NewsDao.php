@@ -1,5 +1,5 @@
 <?php
-namespace ymdarake\tamai\bot\service;
+namespace ymdarake\tamai\bot\model\dao;
 
 
 use ymdarake\tamai\bot\model\News;
@@ -8,7 +8,7 @@ use ymdarake\tamai\bot\model\News;
 require_once(dirname(__DIR__) . "/model/News.php");
 
 
-class NewsFetchService {
+class NewsDao {
 
 	public function __construct() {
 	}
