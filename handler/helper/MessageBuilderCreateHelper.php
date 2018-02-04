@@ -141,7 +141,7 @@ class MessageBuilderCreateHelper {
 					$n->getImage(),
 					[
 						new UriTemplateActionBuilder("詳細", $n->getLink()),
-						new UriTemplateActionBuilder("ツイート", "https://twitter.com/intent/tweet?hashtags=しおったー&text=「" . rawurlencode($n->getTitle()) . "」&url=".$n->getLinkForTwitter())
+						new UriTemplateActionBuilder("ツイート", "https://twitter.com/intent/tweet?hashtags=しおったー&text=「" . rawurlencode($n->getTitle()) . "」++しおりんbotから:+https://line.me/R/ti/p/%40qof8133w+&url=".$n->getLinkForTwitter())
 					]
 				);
 		}
