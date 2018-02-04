@@ -13,7 +13,7 @@ final class PostbackData {
 		return [self::NEWS_SHIORI, self::NEWS_KANAKO, self::NEWS_MOMOCLO, self::NEWS_NATALIE, self::NEWS_CNN];
 	}
 
-	public function toSearchKeyword($postbackData) {
+	public static function toSearchKeyword($postbackData) {
 		$map = [
 			self::NEWS_SHIORI => "玉井詩織",
 			self::NEWS_KANAKO => "百田夏菜子",
