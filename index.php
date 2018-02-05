@@ -4,6 +4,7 @@
  */
 
 use ymdarake\tamai\bot\application\ApplicationBuilder;
+use ymdarake\tamai\bot\handler\FollowRequestHandler;
 use ymdarake\tamai\bot\handler\TextRequestHandler;
 use ymdarake\tamai\bot\handler\PostbackRequestHandler;
 use ymdarake\tamai\bot\handler\UnunderstandableRequestHandler;
@@ -16,6 +17,7 @@ date_default_timezone_set("Asia/Tokyo");
 require_once(__DIR__ . '/vendor/autoload.php');
 require_once(__DIR__ . '/config/config.php');
 require_once(__DIR__ . "/application/ApplicationBuilder.php");
+require_once(__DIR__ . "/handler/FollowRequestHandler.php");
 require_once(__DIR__ . "/handler/TextRequestHandler.php");
 require_once(__DIR__ . "/handler/PostbackRequestHandler.php");
 require_once(__DIR__ . "/handler/UnunderstandableRequestHandler.php");
@@ -52,7 +54,11 @@ function getHandler($event) {
 		return new PostbackRequestHandler($event);
 	}
 
-	if ($event->type === "follow" || $event->type === "unfollow" || $event->type === "join" || $event->type === "leave" || $event->type === "beacon") {
+	if ($event->type === "follow") {
+		return new FollowRequestHandler();
+	}
+
+	if ($event->type === "unfollow" || $event->type === "join" || $event->type === "leave" || $event->type === "beacon") {
 		Logger::getInstance()->info("Not implemented: event '{$event->type}'");
 		exit;
 	}
