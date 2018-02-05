@@ -29,9 +29,8 @@ class PostbackRequestHandler extends Handler {
 		if (in_array($this->event->postback->data, PostbackData::all())) {
 			//TODO: ロジックを分離
 			return $this->reply(
-				(new MessageBuilderCreateHelper())->genCarouselTemplateMessageBuilder(
-					PostbackData::toSearchKeyword($this->event->postback->data)
-				)
+				(new MessageBuilderCreateHelper())
+					->genCarouselTemplateMessageBuilder(PostbackData::toSearchKeyword($this->event->postback->data))
 			);
 		}
 

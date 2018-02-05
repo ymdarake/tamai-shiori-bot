@@ -30,9 +30,9 @@ exit;
 
 function parseRequest() {
 	$postData = file_get_contents('php://input');
-	$json = json_decode($postData);
+	$json     = json_decode($postData);
 	Logger::getInstance()->info($json);
-	$event = $json->events[0];
+	$event    = $json->events[0];
 	return $event;
 }
 
@@ -52,5 +52,15 @@ function getHandler($event) {
 		return new PostbackRequestHandler($event);
 	}
 
+	if ($event->type === "follow" || $event->type === "unfollow" || $event->type === "join" || $event->type === "leave" || $event->type === "beacon") {
+		Logger::getInstance()->info("Not implemented: event '{$event->type}'");
+		exit;
+	}
+
+	// 'image'    => 'LINE\LINEBot\Event\MessageEvent\ImageMessage',
+	// 'video'    => 'LINE\LINEBot\Event\MessageEvent\VideoMessage',
+	// 'audio'    => 'LINE\LINEBot\Event\MessageEvent\AudioMessage',
+	// 'location' => 'LINE\LINEBot\Event\MessageEvent\LocationMessage',
+	// 'sticker'  => 'LINE\LINEBot\Event\MessageEvent\StickerMessage',
 	return new UnunderstandableRequestHandler($event);
 }
