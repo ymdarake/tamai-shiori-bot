@@ -91,7 +91,7 @@ class MessageBuilderCreateHelper {
 					$ua["description"],
 					$ua["image"],
 					[
-						new UriTemplateActionBuilder("View", $ua["uri"], "わくわく...！")
+						new UriTemplateActionBuilder("View", $ua["uri"])
 					]
 				);
 		}
@@ -115,7 +115,7 @@ class MessageBuilderCreateHelper {
 					$pa["description"],
 					$pa["image"],
 					[
-						new PostbackTemplateActionBuilder("検索", $pa["data"])
+						new PostbackTemplateActionBuilder("検索", $pa["data"], "わくわく...！")
 					]
 				);
 		}
