@@ -55,7 +55,7 @@ function getHandler($event) {
 	}
 
 	if ($event->type === "follow") {
-		return new FollowRequestHandler();
+		return new FollowRequestHandler($event);
 	}
 
 	if ($event->type === "unfollow" || $event->type === "join" || $event->type === "leave" || $event->type === "beacon") {
