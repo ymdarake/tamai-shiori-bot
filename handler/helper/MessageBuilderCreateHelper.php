@@ -91,7 +91,7 @@ class MessageBuilderCreateHelper {
 					$ua["description"],
 					$ua["image"],
 					[
-						new UriTemplateActionBuilder("View", $ua["uri"])
+						new UriTemplateActionBuilder("View", $ua["uri"], "わくわく...！")
 					]
 				);
 		}
