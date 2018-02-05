@@ -30,7 +30,7 @@ class FollowRequestHandler extends Handler {
 		}
 	    $selfIntroduce = "いいか" . $userName . "！！私が玉井詩織だーーーーっ！！！";
 	    $followMe = "道は私が作るーーーっ！！！だから黙ってついてこーーーいっ！！！";
-	    $this->replyMultiTextMessages([$selfIntroduce, $followMe]);
+	    return $this->replyMultiTextMessages([$selfIntroduce, $followMe]);
 	}
 
 }
