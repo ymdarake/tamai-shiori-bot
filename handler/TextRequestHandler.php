@@ -33,6 +33,11 @@ class TextRequestHandler extends Handler {
 			);
 		}
 
+		//TODO: ニュース検索の間を持たせるためにつぶやかせるワード
+		if ($this->event->message->text === "わくわく...！") {
+			exit;
+		}
+
 		return $this->reply((new MessageBuilderCreateHelper($this->event->message->text))->create());
 	}
 
